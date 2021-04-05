@@ -1,7 +1,7 @@
-import tkinter as tk
 import wave
 
 import pyaudio
+
 from CheckFile import CheckFileIsValid
 
 
@@ -20,7 +20,7 @@ class PlayAudio:
         frames_per_buffer: int = 2048,
     ):
         self.filepath = filepath
-        CheckFileIsValid().is_valid(self.filepath)
+        CheckFileIsValid().is_valid(self.filepath, check_for=".wav")
         self.format_ = format_
         self.frames_per_buffer = frames_per_buffer
         self.pyaudio_ = pyaudio.PyAudio()

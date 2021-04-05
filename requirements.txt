@@ -1,3 +1,43 @@
-pyaudio==0.2.11
-
-
+# This file may be used to create an environment using:
+# $ conda create --name <env> --file <this file>
+# platform: osx-64
+appdirs=1.4.4=pypi_0
+astroid=2.5.2=pypi_0
+black=20.8b1=pypi_0
+ca-certificates=2020.12.5=h033912b_0
+certifi=2020.12.5=py37hf985489_1
+click=7.1.2=pypi_0
+greenlet=1.0.0=pypi_0
+isort=5.8.0=pypi_0
+jedi=0.18.0=pypi_0
+lazy-object-proxy=1.6.0=pypi_0
+libcxx=10.0.0=1
+libffi=3.3=hb1e8313_2
+mccabe=0.6.1=pypi_0
+msgpack=1.0.2=pypi_0
+mypy=0.812=pypi_0
+mypy-extensions=0.4.3=pypi_0
+ncurses=6.2=h0a44026_1
+openssl=1.1.1k=h0d85af4_0
+parso=0.8.2=pypi_0
+pathspec=0.8.1=pypi_0
+pip=21.0.1=py37hecd8cb5_0
+portaudio=19.6.0=h647c56a_4
+pyaudio=0.2.11=py37h1de35cc_2
+pydub=0.25.1=pyhd8ed1ab_0
+pylint=2.7.4=pypi_0
+python=3.7.10=h88f2d9e_0
+python_abi=3.7=1_cp37m
+readline=8.1=h9ed2024_0
+regex=2021.3.17=pypi_0
+rope=0.18.0=pypi_0
+setuptools=52.0.0=py37hecd8cb5_0
+sqlite=3.35.3=hce871da_0
+tk=8.6.10=hb0a8c7a_0
+toml=0.10.2=pypi_0
+typed-ast=1.4.2=pypi_0
+typing-extensions=3.7.4.3=pypi_0
+wheel=0.36.2=pyhd3eb1b0_0
+wrapt=1.12.1=pypi_0
+xz=5.2.5=h1de35cc_0
+zlib=1.2.11=h1de35cc_3

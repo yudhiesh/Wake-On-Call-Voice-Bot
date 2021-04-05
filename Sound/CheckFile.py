@@ -5,6 +5,6 @@ class CheckFileIsValid:
     """
 
     @staticmethod
-    def is_valid(filepath: str) -> None:
-        if filepath.lower().endswith(".wav") is False:
-            raise ValueError("File is not a .wav file!")
+    def is_valid(filepath: str, check_for: str) -> None:
+        if filepath.lower().endswith(check_for) is False:
+            raise ValueError(f"File is not a {check_for} file!")
