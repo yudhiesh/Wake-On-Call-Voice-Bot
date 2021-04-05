@@ -1,11 +1,18 @@
 import tkinter as tk
 import wave
-import os
 
 import pyaudio
+import os
 
 
 class RecAUD:
+    """
+    Records audio and saves it to the filepath that is provided
+    @param:
+    filepath: str
+    File path of the audio file
+    """
+
     def __init__(
         self,
         filepath,
@@ -39,6 +46,8 @@ class RecAUD:
             frames_per_buffer=self.chunk,
         )
         self.filepath = filepath
+        CheckFileIsValid().is_valid(self.filepath)
+
         self.buttons = tk.Frame(self.main, padx=120, pady=20)
 
         # Pack Frame
@@ -96,8 +105,16 @@ class RecAUD:
 
 
 class PlayAudio:
+    """
+    Play audio from the filepath provided
+    @param:
+    filepath: str
+    File path of the audio file
+    """
+
     def __init__(self, filepath, format_=pyaudio.paInt16, frames_per_buffer=2048):
         self.filepath = filepath
+        CheckFileIsValid().is_valid(self.filepath)
         self.format_ = format_
         self.frames_per_buffer = frames_per_buffer
         self.pyaudio_ = pyaudio.PyAudio()
@@ -121,8 +138,20 @@ class PlayAudio:
         out.write(output_audio)
 
 
+class CheckFileIsValid:
+    """
+    Checks if the file passed in as an argument is a .wav file.
+    If it is not will raise an Exception.
+    """
+
+    @staticmethod
+    def is_valid(filepath: str) -> None:
+        if filepath.lower().endswith(".wav") is False:
+            raise ValueError("File is not a .wav file!")
+
+
 if __name__ == "__main__":
-    FILEPATH = "./Audio/test_recording.wav"
-    # guiAUD = RecAUD(filepath=FILEPATH)
+    FILEPATH = "./Audio/test_recording.jpeg"
+    guiAUD = RecAUD(filepath=FILEPATH)
     pa = PlayAudio(filepath=FILEPATH)
     pa.stream_out()
