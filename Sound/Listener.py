@@ -1,3 +1,4 @@
+import argparse
 import os
 import time
 import wave
@@ -80,5 +81,59 @@ class Interactive:
                 self.index += 1
         except KeyboardInterrupt:
             print("Keyboard Interrupt")
-        except Exception as e:
-            print(str(e))
+        except Exception as error:
+            print(str(error))
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(
+        description="""
+    Script to collect data for wake word training..
+    To record environment sound run set seconds to None. This will
+    record indefinitely until ctrl + c.
+    To record for a set amount of time set seconds to whatever you want.
+    To record interactively (usually for recording your own wake words N times)
+    use --interactive mode.
+    """
+    )
+    parser.add_argument(
+        "--sample_rate", type=int, default=8000, help="the sample_rate to record at"
+    )
+    parser.add_argument(
+        "--seconds",
+        type=int,
+        default=None,
+        help="if set to None, then will record forever until keyboard interrupt",
+    )
+    parser.add_argument(
+        "--save_path",
+        type=str,
+        default=None,
+        required=False,
+        help="full path to save file. i.e. /to/path/sound.wav",
+    )
+    parser.add_argument(
+        "--interactive_save_path",
+        type=str,
+        default=None,
+        required=False,
+        help="directory to save all the interactive 2 second samples. i.e. /to/path/",
+    )
+    parser.add_argument(
+        "--interactive",
+        default=False,
+        action="store_true",
+        required=False,
+        help="sets to interactive mode",
+    )
+
+    args = parser.parse_args()
+
+    if args.interactive:
+        if args.interactive_save_path is None:
+            raise Exception("need to set --interactive_save_path")
+        interactive = Interactive(args)
+        interactive.record()
+    else:
+        if args.save_path is None:
+            raise Exception("need to set --save_path")
