@@ -1,5 +1,6 @@
-from CheckFile import CheckFileIsValid
 import pydub
+
+from CheckFile import CheckFileIsValid
 
 
 class ConvertToMP3:
@@ -12,4 +13,6 @@ class ConvertToMP3:
         CheckFileIsValid().is_valid(filepath=self.output_filepath, check_for=".mp3")
         self.convert_to = convert_to
         self.sound = pydub.AudioSegment.from_mp3(self.input_filepath)
-        self.sound.export(out_f=self.output_filepath, format=self.convert_to)
+        self.sound.export(
+            out_f=self.output_filepath, format=self.convert_to
+        )  # type:ignore
