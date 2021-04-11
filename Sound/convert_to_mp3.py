@@ -1,6 +1,6 @@
 import pydub
 
-from CheckFile import CheckFileIsValid
+from check_file import CheckFileIsValid
 
 
 class ConvertToMP3:

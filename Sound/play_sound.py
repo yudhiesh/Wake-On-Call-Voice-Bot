@@ -2,7 +2,7 @@ import wave
 
 import pyaudio
 
-from CheckFile import CheckFileIsValid
+from check_file import CheckFileIsValid
 
 
 class PlayAudio:
