@@ -47,7 +47,7 @@ class RecAUD:
             frames_per_buffer=self.chunk,
         )
         self.filepath = filepath
-        CheckFileIsValid().is_valid(self.filepath, check_for=".wav")
+        CheckFileIsValid.is_valid(self.filepath, check_for=".wav")
 
         self.buttons = tk.Frame(self.main, padx=120, pady=20)
 
